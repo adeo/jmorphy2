@@ -1,12 +1,15 @@
 package company.evo.jmorphy2.lucene;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import java.util.stream.Collectors;
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -121,7 +124,7 @@ public class Jmorphy2StemFilter extends TokenFilter {
     }
 
     private List<String> getNormalForms(CharTermAttribute termAtt) throws IOException {
-        List<String> normalForms = new ArrayList<String>();
+        List<ParsedWord> normalForms = new ArrayList<ParsedWord>();
         Set<String> uniqueNormalForms = new HashSet<String>();
 
         char[] termBuffer = termAtt.buffer();
@@ -155,12 +158,17 @@ public class Jmorphy2StemFilter extends TokenFilter {
             }
 
             if (shouldAdd && !uniqueNormalForms.contains(p.normalForm)) {
-                normalForms.add(p.normalForm);
+                normalForms.add(p);
                 uniqueNormalForms.add(p.normalForm);
             }
         }
 
-        return normalForms;
+        Optional<ParsedWord> wordWithMaxScore = normalForms
+            .stream().max((firstWord, secondWord) -> Float.compare(firstWord.score, secondWord.score));
+
+        return wordWithMaxScore
+            .map(parsedWord -> Collections.singletonList(parsedWord.normalForm))
+            .orElse(normalForms.stream().map(parsedWord -> parsedWord.normalForm).collect(Collectors.toList()));
     }
 
     private void setTerm(String stem, int posInc) {

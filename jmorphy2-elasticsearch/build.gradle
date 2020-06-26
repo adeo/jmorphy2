@@ -18,7 +18,7 @@ apply plugin: 'elasticsearch.esplugin'
 apply plugin: 'com.jfrog.bintray'
 
 esplugin {
-    name = 'analysis-jmorphy2'
+    name = 'analysis-jmorphy2-strict'
     description 'Jmorphy2 plugin for ElasticSearch'
     classname = 'company.evo.jmorphy2.elasticsearch.plugin.AnalysisJmorphy2Plugin'
     licenseFile project.file('LICENSE.txt')
