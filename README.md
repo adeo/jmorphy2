@@ -1,4 +1,4 @@
-[![Travis Status](https://travis-ci.org/anti-social/jmorphy2.svg?branch=master)](https://travis-ci.org/anti-social/jmorphy2)
+![Java CI](https://github.com/anti-social/jmorphy2/workflows/Java%20CI/badge.svg)
 [![Appveyor status](https://ci.appveyor.com/api/projects/status/x9df34q1er8r5kc0/branch/master?svg=true)](https://ci.appveyor.com/project/anti-social/jmorphy2/branch/master)
 
 # Jmorphy2
@@ -36,12 +36,12 @@ To see all available vagga commands just type ``vagga``
 ```sh
 # Specify correct path of your Elasticsearch installation
 export es_home=/usr/share/elasticsearch
-${es_home}/bin/elasticsearch-plugin install "https://bintray.com/evo/elasticsearch/download_file?file_path=analysis-jmorphy2-0.2.1-es7.6.1.zip"
+${es_home}/bin/elasticsearch-plugin install "https://bintray.com/evo/elasticsearch/download_file?file_path=analysis-jmorphy2-0.2.2-es7.9.2.zip"
 ```
 
 ### Building plugin
 
-Default elasticsearch version against which plugin is built is 7.6.1
+Default elasticsearch version against which plugin is built is 7.9.2
 
 To build for specific elastisearch version run build as:
 
@@ -55,7 +55,7 @@ Or:
 ./gradlew assemble -PesVersion=6.7.1
 ```
 
-Supported elasticsearch versions: `6.6.x`, `6.7.x`, `7.0.x`, `7.1.x`, `7.2.x`, `7.3.x`, `7.4.x`, `7.5.x` and `7.6.x`
+Supported elasticsearch versions: `6.6.x`, `6.7.x`, `6.8.x`, `7.0.x`, `7.1.x`, `7.2.x`, `7.3.x`, `7.4.x`, `7.5.x`, `7.6.x`, `7.7.x`, `7.8.x` and `7.9.x`
 
 For older elasticsearch version use specific branches:
 
@@ -67,7 +67,7 @@ And install assembled plugin:
 ```sh
 # Specify correct path of your Elasticsearch installation
 export es_home=/usr/share/elasticsearch
-sudo ${es_home}/bin/elasticsearch-plugin install file:jmorphy2-elasticsearch/build/distributions/analysis-jmorphy2-0.2.1-SNAPSHOT-es7.6.1.zip
+sudo ${es_home}/bin/elasticsearch-plugin install file:jmorphy2-elasticsearch/build/distributions/analysis-jmorphy2-0.2.2-SNAPSHOT-es7.9.2.zip
 ```
 
 Or just run elasticsearch inside the container 
