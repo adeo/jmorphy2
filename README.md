@@ -8,7 +8,7 @@ Java port of the [pymorphy2](https://github.com/kmike/pymorphy2)
 Clone project:
 
 ```sh
-git clone https://github.com/anti-social/jmorphy2
+git clone https://github.com/adeo/jmorphy2
 cd jmorphy2
 ```
 
