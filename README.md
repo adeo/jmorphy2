@@ -8,8 +8,8 @@ Java port of the [pymorphy2](https://github.com/kmike/pymorphy2)
 Clone project:
 
 ```sh
-git clone https://github.com/anti-social/jmorphy2
-cd jmorphy2
+git clone https://github.com/adeo/lmru--srchnav--search-jmorphy2
+cd lmru--srchnav--search-jmorphy2
 ```
 
 Compile project, build jars and run tests:
